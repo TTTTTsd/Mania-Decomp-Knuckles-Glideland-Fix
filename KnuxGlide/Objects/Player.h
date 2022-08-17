@@ -2,7 +2,6 @@
 #define OBJ_PLAYER_H
 
 #include "GameAPI/Game.h"
-#include "Camera.h"
 
 typedef enum {
     ANI_IDLE,
@@ -353,7 +352,7 @@ typedef struct {
     StateMachine(state);
     StateMachine(nextAirState);
     StateMachine(nextGroundState);
-    EntityCamera *camera;
+    void *camera;
     Animator animator;
     Animator tailAnimator;
     int32 minJogVelocity;
@@ -457,5 +456,8 @@ void (*Player_Action_Spindash)(void);
 // States
 void (*Player_State_Ground)(void);
 void (*Player_State_KnuxGlideDrop)(void);
+void (*Player_State_KnuxGlideLeft)(void);
+void (*Player_State_KnuxGlideRight)(void);
 void Player_State_KnuxGlideDrop_Hook(bool32 skip);
+void (*Player_Input_P2_AI)(void);
 #endif //! OBJ_PLAYER_H

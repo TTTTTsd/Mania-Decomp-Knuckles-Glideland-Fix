@@ -1,6 +1,5 @@
 #include "../GameAPI/C/GameAPI/Game.h"
 #include "Objects/Player.h"
-#include "Objects/Zone.h"
 
 #if RETRO_USE_MOD_LOADER
 DLLExport bool32 LinkModLogic(EngineInfo *info, const char *id);
@@ -11,8 +10,10 @@ Player_Action_Spindash = Mod.GetPublicFunction(NULL, "Player_Action_Spindash");
 Player_Action_Jump = Mod.GetPublicFunction(NULL, "Player_Action_Jump");
 Player_State_Ground = Mod.GetPublicFunction(NULL, "Player_State_Ground");
 Player_State_KnuxGlideDrop = Mod.GetPublicFunction(NULL, "Player_State_KnuxGlideDrop");
+Player_State_KnuxGlideLeft = Mod.GetPublicFunction(NULL, "Player_State_KnuxGlideLeft");
+Player_State_KnuxGlideRight = Mod.GetPublicFunction(NULL, "Player_State_KnuxGlideRight");
+Player_Input_P2_AI          = Mod.GetPublicFunction(NULL, "Player_Input_P2_AI");
 Mod.RegisterStateHook(Player_State_KnuxGlideDrop,Player_State_KnuxGlideDrop_Hook, false);
-MOD_REGISTER_OBJECT_HOOK(Zone);
 MOD_REGISTER_OBJECT_HOOK(Player);
 }
 
